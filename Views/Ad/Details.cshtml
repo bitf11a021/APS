@@ -1,0 +1,124 @@
+﻿@model APS_abd.Models.adpost
+
+<head>
+    <meta charset="utf-8">
+@section title
+{
+    <title>APS Ad - Details</title>
+}
+    <link rel="stylesheet" href="/Content/style.css" />
+        
+</head>
+  <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/logout">Log out</a>               	
+                    </div>
+        </div>
+@section body{
+    <body>
+        <div class="clearfix"></div>
+        <div class="container">
+<fieldset>
+    <legend>Post - Details</legend>
+
+  @*  <div class="display-label">
+      <strong> @Html.DisplayNameFor(model => model.user.Email) :</strong>  
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.user.Email)
+    </div>*@
+    </br>
+    <div class="display-label">
+     <strong>    @Html.DisplayNameFor(model => model.category) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.category)
+    </div>
+       </br>
+    <div class="display-label">
+      <strong>   @Html.DisplayNameFor(model => model.subcategory) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.subcategory)
+    </div>
+    </br>
+    <div class="display-label">
+      <strong>   @Html.DisplayNameFor(model => model.Title) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+    </br>
+   
+    <div class="display-label">
+      <strong>   @Html.DisplayNameFor(model => model.Description) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    </br>
+     <div>
+        <img src="/Images/cat.jpg" height="400" width="600"/>
+    </div>
+    <div class="display-label">
+      <strong>   @Html.DisplayNameFor(model => model.Price) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+    </br>
+    <div class="display-label">
+       <strong> @Html.DisplayNameFor(model => model.Phoneno) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phoneno)
+    </div>
+    </br>
+    <div class="display-label">
+       <strong>  @Html.DisplayNameFor(model => model.Location) : </strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+    </br>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+                  </div>
+        <div class="clearfix"></div>
+
+        <div class="container">
+            <strong>Comments :</strong><br />
+            <a href="/Comment/ShowComments/@Model.Id">showcomments</a><br /><br />
+        </div>
+
+
+
+
+
+
+
+        <div class="clearfox"></div>
+
+         <div class="container">
+      
+        @using (Html.BeginForm("AddComment","Comment",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+         <strong onfocus="f1()"> You Can Comment here As Anonymous!</strong > <br />
+            @Html.TextArea("text", "Description", 6, 50, null)
+            @Html.ValidationMessageFor(model=>model.comment_mng.Comment)<br />
+            <input type="hidden"  value ="@Html.DisplayFor(model=>model.Id)" name="post_id" /><br />
+            
+            <input type="submit" value="Post" />
+      
+        }
+         </div>
+    </body>
+    }
+@section Scripts{
+    <script src="jquery-1.9.0.min.js">
+</script>
+    }
+

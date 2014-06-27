@@ -1,0 +1,93 @@
+﻿@model APS_abd.Models.adpost
+
+<head>
+    <meta charset="utf-8">
+@section title
+{
+    <title>AdPosting System - Delete Ad</title>
+}
+    <link rel="stylesheet" href="/Content/style.css" />
+        
+</head>
+  <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/logout">Log out</a>               	
+                    </div>
+        </div>
+ <div class="container">
+@section body{
+   <div class="container">
+   
+<h2>Delete</h2>
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>adpost</legend>
+
+  @*  <div class="display-label">
+         @Html.DisplayNameFor(model => model.user.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.user.Email)
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.category)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.category)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.subcategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.subcategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phoneno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phoneno)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+</fieldset>
+     </div>
+    }
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+     </div>

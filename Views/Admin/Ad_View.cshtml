@@ -1,0 +1,50 @@
+﻿@model IEnumerable<APS_abd.Models.adpost>
+
+<head>
+    <meta charset="utf-8">
+@section title
+{
+    <title>AdPosting System - Admin - Ad_Details</title>
+}
+    <link rel="stylesheet" href="/Content/style.css" />
+        
+</head>
+  <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/logout">Log out</a>               	
+                    </div>
+        </div>
+<div class="clearfix"></div>
+@section body{
+<body>
+    <br />
+    <div class="clearfix"></div>
+    <div class="container">
+        @foreach (var item in Model) {
+            <section class="left_area">
+            	<div class="product_main">
+                          @Html.DisplayFor(modelItem => item.Id)
+                     	<div class="p_img">
+                       		<img src="~/Images/product.jpg" alt="" title="" />
+                        </div>
+                        <div class="p_des">
+                    	<h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                        <h4>Yesterday 8:30pm, @Html.DisplayFor(modelItem => item.subcategory), @Html.DisplayFor(modelItem => item.Location)</h4>
+                        @Html.ActionLink("Details", "Details", new {  id=item.Id  }) |
+                        @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+                          <h4><a href="/Comment/ShowComments/@item.Id">Comments!</a></h4>
+                    </div>
+                    <div class="p_price">
+                    	<h3>Rs,@Html.DisplayFor(modelItem => item.Price)</h3>
+                    </div>
+                </div>
+                
+               
+            </section>
+       <div class="clearfix"></div>
+ 
+}
+        </div>
+
+</body>
+    }

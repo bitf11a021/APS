@@ -1,0 +1,21 @@
+﻿@model IEnumerable<APS_abd.Models.comment_mng>
+
+<head>
+    <meta charset="utf-8">
+@section title
+{
+    <title>APS Ad - Details</title>
+}
+    <link rel="stylesheet" href="/Content/style.css" />
+        
+</head>
+@section body{
+    <div class="container">
+    @foreach(var a in Model)
+    {
+        <strong> Anonymous :</strong>
+        <fieldset>@a.Comment</fieldset><br />
+    }
+        </div>
+    }
+

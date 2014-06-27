@@ -1,0 +1,68 @@
+﻿@model IEnumerable<APS_abd.Models.user>
+<html>
+ <head>
+        <meta charset="utf-8">
+        @section title{
+        <title>AdPosting System - User Details</title>
+    	}
+        <link rel="stylesheet" href="/Content/style.css" />
+        
+    </head>
+      <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/logout">Log out</a>               	
+                    </div>
+        </div>
+@section body{
+<body>  
+     <div class="clearfix"></div>
+        <div class="container">
+<h2>User Details</h2>
+
+<p>
+   @* @Html.ActionLink("Create New", "Create") *@
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Uid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+             @Html.ActionLink("Delete", "Delete", new { id=item.Uid  })
+            @Html.ActionLink("Details", "Details", new { id=item.Uid  })
+        </td>
+    </tr>
+}
+
+</table>
+            </div>
+    <div class="clearfix"></div>
+    </body>
+    }
+    </html>

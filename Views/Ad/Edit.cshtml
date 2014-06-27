@@ -1,0 +1,136 @@
+﻿@model APS_abd.Models.adpost
+
+<head>
+    <meta charset="utf-8">
+@section title
+{
+    <title>AdPosting System - Edit Ad</title>
+}
+    <link rel="stylesheet" href="/Content/style.css" />
+        
+</head>
+  <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/logout">Log out</a>               	
+                    </div>
+        </div>
+@section body{
+    <body>
+        <div class="clearfix"></div>
+        <div class="container">
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>adpost</legend>
+
+       <label>UID: @ViewBag.id</label>
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.category)
+        </div>
+        <div class="editor-field">
+             <select name="category" id="typ2" >
+                               <option value="">Select a category...</option>
+                                    <option value="Animals">Animals</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Cars &amp Vehicles">Cars &amp Vehicles</option>
+                                                                
+                            </select>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.subcategory)
+        </div>
+        <div class="editor-field">
+          <select name="subcategory" id="type_s" >
+                               <option value="">Select a category...</option>
+                                <optgroup data-id="1" label="Animals">
+                                    <option value="Cat">Cats</option>
+                                    <option value="Dog">Dogs</option>
+                                    <option value="Tiger">Tiger</option>
+                                    <option value="Lion">Lion</option>
+                                </optgroup>
+                                <optgroup data-id="2" label="Electronics">
+                                    <option value="WindowAC">WindowAC</option>
+                                    <option value="Fan">Fans</option>
+                                    <option value="Laptop">Laptops</option>
+                                    <option value="Cellphone">Cellphones</option>
+                                </optgroup>
+                                 <optgroup data-id="3" label="Cars &amp Vehicles">
+                                    <option value="Car">Cars</option>
+                                    <option value="Mazda">Mazda</option>
+                                    <option value="Bus">Bus</option>
+                                    <option value="Bikes">Bikes</option>
+                                </optgroup>
+                            </select>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextArea("text", "Description", 10, 80, null)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phoneno)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phoneno)
+            @Html.ValidationMessageFor(model => model.Phoneno)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+          <select name="location" id="type" >
+                               <option value="">Select a category...</option>
+                               <optgroup data-id="1" label="Pakistan">
+                                    <option value="Lahore">Lahore</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Peshawar">Peshawar</option>
+                                </optgroup>
+                            
+                            </select>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+          
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+        </div>
+        <div class="clearfix"></div> 
+
+    </body>
+    }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

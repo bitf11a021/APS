@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    @RenderSection("title",required:false)
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+       @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+    
+    <script>
+        function f1() {
+
+            var name = $('#type').val();
+            $.getJSON("/Home/GetSelectedData?Type=" + name, function (item) {
+
+                alert("in function"+item.results);
+                if (item != null) {
+                    var div = $('#result');
+                    alert('hello');
+                    div.html("<br/> " + "Data received from DB: " + "<br/>");
+
+                   
+                        div.append("<br/>" + "Title: " + item.Title +  " , Subcategory:  " + item.subcategory + " ");
+               
+                    div.show();
+                }
+                else {
+                    alert('Getlost');
+                }
+              
+            });
+        }
+
+        
+    </script>
+</head>
+<body>
+    <header>
+        	<div class="container">
+            	<div class="logo">
+                	<a href="#"><img src="~/Images/logo.png" width="300" height="150" /></a>
+                </div>
+                <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/login">Sign In</a>               	
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="header_title">
+                    	<h1>Do you have something to sell?</h1>
+                        <h3>POST your ad FOR FREE on APS</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="header_btn">
+                        <div class="left_arrow"></div>
+                        <div class="posting_btn">
+                            <a href="/User/Create">Post a FREE Ad</a>
+                        </div>
+                        <div class="right_arrow"></div>
+                    </div>
+                </div>
+            </div>
+       
+     
+        </header>
+        <div class="container">
+        	<nav>
+            	<ul>
+                	<li><a href="/Home/Index">home</a></li>
+                    <li><a href="/Home/Aboutus">about us</a></li>
+                    <li><a href="">help</a></li>
+                    <li><a href="">faq</a></li>
+                    <li><a href="/Home/Contact">contact us</a></li>
+                </ul>
+                  <div class="search">
+            	        <form action="" method="get">
+                	        <input type="search" name="search" id="search" placeholder="What are you looking for?" />
+                            <select name="category" id="type" onchange="f1()">
+                               <option value="">Select a category...</option>
+                                <optgroup data-id="1" label="Animals">
+                                    <option value="Cat">Cats</option>
+                                    <option value="Dog">Dogs</option>
+                                    <option value="Tiger">Tiger</option>
+                                    <option value="Lion">Lion</option>
+                                </optgroup>
+                                <optgroup data-id="2" label="Electronics">
+                                    <option value="WindowAC">WindowAC</option>
+                                    <option value="Fan">Fans</option>
+                                    <option value="Laptop">Laptops</option>
+                                    <option value="Cellphone">Cellphones</option>
+                                </optgroup>
+                                 <optgroup data-id="3" label="Cars &amp Vehicles">
+                                    <option value="Car">Cars</option>
+                                    <option value="Mazda">Mazda</option>
+                                    <option value="Bus">Bus</option>
+                                    <option value="Bikes">Bikes</option>
+                                </optgroup>
+                            </select>
+                        <input type="submit" value="" />
+                      </form>
+                 </div>
+            </nav>
+        </div>
+
+    @RenderSection("header",required:false)
+    @RenderBody()
+    @RenderSection("body",required:false)
+  <div class="clearfix"><//div>
+     <div  class="container">
+              <section class="left_area">
+             
+        <div class="product_main">
+            
+        <div id="result"></div>
+            </div>
+                   </section>
+                  </div>
+           
+    <div class="clearfix"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <footer>
+        	<div class="container">
+            	<div class="about">
+                	<h1>About APS</h1>
+                    <p>
+                    	APS provides a simple solution to the complications involved in selling, 
+                        buying, trading, discussing, organizing, and meeting people near you, 
+                        wherever you may reside.
+                    </p>
+                </div>
+                <div class="help_info">
+                	<h1>helpful information</h1>
+                    <ul>
+                    	<li><a href="">help</a></li>
+                        <li><a href="">about aps</a></li>
+                        <li><a href="">privacy policy</a></li>
+                        <li><a href="">contact</a></li>
+                    </ul>
+                </div>
+                <div class="social_info">
+                	<h1>contact</h1>
+                    <ul>
+                    	<li><a href="">facebook</a></li>
+                        <li><a href="">twitter</a></li>
+                        <li><a href="">linkdin</a></li>
+                        <li><a href="">pinterest</a></li>
+                    </ul>
+                </div>
+                <div class="aps_sec">
+                	<img src="~/Images/footer_aps.png" alt="" title="" />
+                    <img src="~/Images/fb_like.png" alt="" />
+                    <h6>220 likes on facebook</h6>
+                    <div class="clearfix"></div>
+                    <p>
+                    	Founded by <span>Abdullah Baig</span> - Web Designer & Developer in PUCIT,Lahore.
+                        For work inquiries feel free, contact me <a href="">here</a>.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="copyright">
+                	<p>Copyright &copy; <span>APS</span> 2104. All Rights Reserved. | Design & Development <span>Abdullah Baig</span></p>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

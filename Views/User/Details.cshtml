@@ -1,0 +1,57 @@
+﻿@model APS_abd.Models.user
+
+   <head>
+        <meta charset="utf-8">
+        @section title{
+        <title>AdPosting System - Registration</title>
+    	}
+        <link rel="stylesheet" href="/Content/style.css" />
+        
+    </head>
+  <div class="header_right">
+                	<div class="sign">
+                   		<a href="../..//Home/logout">Log out</a>               	
+                    </div>
+        </div>
+    @section body{
+
+        <div class="container">
+<h2>Details</h2>
+
+<fieldset>
+    <legend>user</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Uid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Uid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+</fieldset>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) *@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+            </div>
+        }

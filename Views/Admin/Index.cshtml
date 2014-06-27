@@ -1,0 +1,40 @@
+﻿@{
+    Layout =  "~/Views/Shared/_Layout.cshtml";
+}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+ @model APS_abd.Models.admin
+        @section title {
+        <title>AdPosting System - Admin</title>
+    	}
+        <link rel="stylesheet" href="~/Content/style.css" />
+        
+    </head>
+    @section body{
+         <body>
+             <div class="clearfix"></div>
+              <div class="container">
+        	<div class="reg">
+            	<h1>Admin - Sign In</h1> 
+                 @using (Html.BeginForm("Checklogin","Admin",FormMethod.Post)) {
+                @Html.ValidationSummary(true)
+                      @Html.LabelFor(model => model.UserName)
+                        
+                        @Html.EditorFor(model=>model.UserName)
+                       @Html.ValidationMessageFor(model=>model.UserName)
+           <div class="editor-field">
+                            @Html.LabelFor(model => model.Password)
+                            @Html.EditorFor(model=>model.Password)
+                       @Html.ValidationMessageFor(model=>model.Password)
+                             </div>  <input type="submit" value="Login" />
+                 }
+                <div class="clearfix"></div>
+              
+            </div>
+        </div>
+             <div class="clearfix"></div>
+    	 </body>
+        }
+    </html>
