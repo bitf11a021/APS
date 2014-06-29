@@ -1,0 +1,79 @@
+@model APS_abd.Models.user
+<!doctype html>                                                                                                
+<html>
+<head>
+<meta charset="utf-8">
+@section title {
+<title>AdPosting System  - Login</title>
+}
+<link rel="stylesheet" href="/Content/style.css" />
+</head>
+@section body{
+    <body>
+      <div class="clearfix"></div>
+         <div class="clearfix"></div>
+            <div class="container">
+               <div class="reg">
+                	<h1>Sign In</h1> 
+                   <form method="post" action="/Home/Checklogin">
+                   @*@using (Html.BeginForm())
+                   {
+                       
+                       @Html.ValidationSummary(true)
+           	         *@<div class="editor-field">
+                         @Html.LabelFor(model => model.UserName)
+                         <input type="text" name="username" id="user" placeholder="User Name..." /><br />
+                       @* @Html.EditorFor(model=>model.UserName)
+                       @Html.ValidationMessageFor(model=>model.UserName)*@
+                      </div>
+                         <div class="editor-field">
+                            @Html.LabelFor(model => model.Password)
+                       <input type="password" name="password" id="pass" placeholder="Password..." /><br />
+                         @*  @Html.EditorFor(model=>model.Password)
+                       @Html.ValidationMessageFor(model=>model.Password)*@
+                             </div>
+                    
+                       @*<input type="submit" value="Login Now" />*@
+                      <input id="b1" type="button" onclick="f1()" value="Login Now">
+                       <div id="result"></div>
+                  </form>
+                <div class="clearfix"></div>
+                <h2>OR</h2>
+                <a href="/User/Create">Register Now</a>
+            </div>
+        </div>
+       <div class="clearfix"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="/Scripts/slider.js" type="text/javascript"></script>    
+    <script>
+    	$(document).ready(function(){
+  			$('.bxslider').bxSlider();
+		});
+    </script>
+        <script>
+
+                       
+               function f1() {
+                  
+                    var userName = $('#user').val();
+                    var password = $('#pass').val();
+                    
+                    $.getJSON("/Home/Checklogin?UserName=" + userName+ "&Password=" +password, function (data) {
+                        if (data) {
+                            window.location.href='/Ad/Index'
+                           
+
+                        }
+                        else {
+                            alert('UserName not Registered!!');
+                        }
+                    });
+            }
+        </script>
+
+    </body>
+        }
+            @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+</html>
