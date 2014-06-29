@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="/Content/style.css" />
         
 </head>
-  <div class="header_right">
+   @section header{
+      <div class="header_right">
                 	<div class="sign">
                    		<a href="../..//Home/logout">Log out</a>               	
                     </div>
         </div>
+        }
 @section body{
     <body>
         <div class="clearfix"></div>
         <div class="container">
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit","Ad",FormMethod.Post)) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -32,7 +34,7 @@
         </div>
         <div class="editor-field">
              <select name="category" id="typ2" >
-                               <option value="">Select a category...</option>
+                               <option value="">@Model.category</option>
                                     <option value="Animals">Animals</option>
                                     <option value="Electronics">Electronics</option>
                                     <option value="Cars &amp Vehicles">Cars &amp Vehicles</option>
@@ -45,7 +47,7 @@
         </div>
         <div class="editor-field">
           <select name="subcategory" id="type_s" >
-                               <option value="">Select a category...</option>
+                               <option value="">@Model.subcategory</option>
                                 <optgroup data-id="1" label="Animals">
                                     <option value="Cat">Cats</option>
                                     <option value="Dog">Dogs</option>
@@ -79,7 +81,7 @@
             @Html.LabelFor(model => model.Description)
         </div>
         <div class="editor-field">
-            @Html.TextArea("text", "Description", 10, 80, null)
+            @Html.TextArea("text", @Model.Description, 10, 80, null)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
 
@@ -104,7 +106,7 @@
         </div>
         <div class="editor-field">
           <select name="location" id="type" >
-                               <option value="">Select a category...</option>
+                               <option value="">@Model.Location</option>
                                <optgroup data-id="1" label="Pakistan">
                                     <option value="Lahore">Lahore</option>
                                     <option value="Islamabad">Islamabad</option>

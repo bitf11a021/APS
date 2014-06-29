@@ -3,11 +3,13 @@
 @{
     ViewBag.Title = "Edit";
 }
-  <div class="header_right">
+   @section header{
+      <div class="header_right">
                 	<div class="sign">
                    		<a href="../..//Home/logout">Log out</a>               	
                     </div>
         </div>
+        }
 <h2>Edit</h2>
 
 @using (Html.BeginForm()) {
